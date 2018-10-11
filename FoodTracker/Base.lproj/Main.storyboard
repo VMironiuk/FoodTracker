@@ -113,16 +113,26 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="EeC-aA-ymk">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yjg-EK-wNm"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MBt-XD-Dwz"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yjg-EK-wNm">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="Z62-qu-Tnl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MBt-XD-Dwz">
+                            <connections>
+                                <segue destination="uSn-ry-NNr" kind="unwind" unwindAction="unwindToMealListWithSender:" id="ybU-qC-0Xz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="HT2-aq-dw3" id="MLv-qg-AJg"/>
                         <outlet property="photoImageView" destination="9um-jO-sCd" id="dZs-6g-8UL"/>
                         <outlet property="ratingControl" destination="0Tw-XW-gYe" id="B8e-Go-UXp"/>
+                        <outlet property="saveButton" destination="MBt-XD-Dwz" id="dYW-Si-3Tz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="uSn-ry-NNr" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="kvu-39-cMC">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="4T6-Nd-fiJ"/>
